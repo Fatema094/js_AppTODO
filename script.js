@@ -16,7 +16,7 @@ const showMessage = (text, status) =>{
     messageElement.classList.add(`bg-${status}`);
     setTimeout(()=>{
         messageElement.textContent = "";
-        messageElement.classList.remove("bg-success");
+        messageElement.classList.remove(`bg-${status}`);
     },1000);
 };
 
@@ -30,12 +30,12 @@ const showMessage = (text, status) =>{
     todoElement.classList.add("li-style");
     todoElement.innerHTML = `
     <span>${todoValue}</span>
-    <span><button class ="btn" id="deleteButton>" 
+    <span><button class ="btn" id="deleteButton"> 
     <i class=" fa fa-trash"> </i> </button></span>
     `;
     todoLists.appendChild(todoElement);
 
-    const deleteButton = todoElement.querySelector("deleteButton");
+    const deleteButton = todoElement.querySelector("#deleteButton");
     deleteButton.addEventListener("click",deleteTodo);
 
  };
